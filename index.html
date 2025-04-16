@@ -1,0 +1,118 @@
+<!-- Write code below 💖 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif; /* Fallback font */
+        }
+
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('Fonts/PixelifySans-VariableFont_wght.ttf') format('truetype');
+        }
+
+        #contents {
+           font-family:Jokerman;
+            width: 100vw;
+            min-height: 100vh;
+            background: url('imgs/bg.gif') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start; /* Corrected */
+            text-align: center;
+            color: white;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        
+
+
+.content {
+    background: rgba(0, 0, 0, 0.6); /* پس‌زمینه نیمه شفاف برای خوانایی */
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer; /* تغییر نشانگر به حالت انتخابی */
+    transition: transform 0.3s ease, background 0.3s ease; /* افکت نرم */
+   
+}
+
+/* افکت هنگام هاور */
+.content:hover {
+    transform: scale(1.05); /* کمی بزرگ‌تر شدن هنگام هاور */
+    background: rgba(255, 255, 255, 0.2); /* تغییر رنگ پس‌زمینه هنگام هاور */
+}
+
+#show {
+            
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            text-align: center;
+            width: 500px;
+            height: 300px;
+        }
+        #show img {
+            width: 30%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <section id="contents">
+        <div id="aboutMe" class="content" onmouseover="showInfo('About Me', 'Hello! I\'m Zahra,I love coding and I enjoy learning and exploring new ideas.', 'imgs/about.jpg')" onmouseleave="hideInfo()">
+            <h2>About Me</h2>
+        </div>
+        <div id="abilities" class="content" onmouseover="showInfo('My Abilities', 'I am an Android developer(Java, kotlin),I have skills in HTML, CSS, and JavaScript, as well as a passion for creativity!', 'imgs/abilities.jpg')" onmouseleave="hideInfo()">
+            <h2>My Abilities</h2>
+        </div>
+        <div id="social" class="content" onmouseover="showInfo('Social Media', 'Find me on GitHub, Twitter, Instagram, and LinkedIn.', 'imgs/social.jpg')" onmouseleave="hideInfo()">
+            <h2>Social Media</h2>
+        </div>
+        <div id="projects" class="content" onmouseover="showInfo('My Projects', 'Check out my portfolio of web development projects and designs!', 'imgs/projects.jpg')" onmouseleave="hideInfo()">
+            <h2>My Projects</h2>
+        </div>
+  </section>
+
+  <div id="show">
+    
+    <h2 id="showTitle"></h2>
+    <p id="showText"></p>
+    <img id="showImage" src="" alt="Info Image">
+</div>
+<script>
+   function showInfo(title, text, showImage) {
+    const showBox = document.getElementById("show");
+    document.getElementById("showTitle").textContent = title;
+    document.getElementById("showText").textContent = text;
+    document.getElementById("showImage").src = showImage; // Fixed typo and property
+    showBox.style.display = "block";
+}
+
+    function hideInfo(){
+        document.getElementById("show").style.display= "none";
+    }
+</script>
+  
+
+
+
+</body>
+</html>
+
