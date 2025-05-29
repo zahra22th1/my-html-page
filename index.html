@@ -71,47 +71,13 @@
             border-radius: 8px;
             margin-bottom: 10px;
         }
-#mobilePopup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.85);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.popup-content {
-    background-color: white;
-    color: black;
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 90%;
-    width: 400px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    font-family: Arial, sans-serif;
-}
 
-.popup-content ul {
-    text-align: left;
-    margin-top: 10px;
-    padding-left: 20px;
-}
 
     </style>
 </head>
 <body>
-  <div id="mobilePopup">
-    <div class="popup-content">
-        <h2>🚫 Desktop Only</h2>
-        <p>This page is only viewable on desktop.</p>
-    </div>
-</div>
+
 
     <section id="contents">
         <div id="aboutMe" class="content" onmouseover="showInfo('About Me', 'Hello! I\'m Zahra,I love coding and I enjoy learning and exploring new ideas.', 'imgs/about.jpg')" onmouseleave="hideInfo()">
@@ -147,21 +113,7 @@
         document.getElementById("show").style.display= "none";
     }
 
-    function checkDevice() {
-        const isMobile = window.innerWidth <= 768;
-
-        if (isMobile) {
-            document.getElementById("contents").style.display = "none";
-            document.getElementById("show").style.display = "none";
-            document.getElementById("mobilePopup").style.display = "flex";
-        } else {
-            document.getElementById("contents").style.display = "flex";
-            document.getElementById("mobilePopup").style.display = "none";
-        }
-    }
-
-    checkDevice();
-    window.addEventListener("resize", checkDevice);
+  
 
 
 
