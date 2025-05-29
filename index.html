@@ -71,10 +71,32 @@
             border-radius: 8px;
             margin-bottom: 10px;
         }
+#mobileWarning {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
 
     </style>
 </head>
 <body>
+    <div id="mobileWarning">
+    <h2>🚫 این صفحه فقط در حالت دسکتاپ قابل مشاهده است.</h2>
+    <p>لطفاً با یک دستگاه دسکتاپ وارد شوید یا مرورگر خود را در حالت دسکتاپ باز کنید.</p>
+</div>
+
     <section id="contents">
         <div id="aboutMe" class="content" onmouseover="showInfo('About Me', 'Hello! I\'m Zahra,I love coding and I enjoy learning and exploring new ideas.', 'imgs/about.jpg')" onmouseleave="hideInfo()">
             <h2>About Me</h2>
@@ -108,6 +130,18 @@
     function hideInfo(){
         document.getElementById("show").style.display= "none";
     }
+
+    // بررسی اندازه صفحه برای مخفی یا نمایش دادن محتوا
+    function checkDevice() {
+        if (window.innerWidth <= 768) { // موبایل یا تبلت
+            document.getElementById("contents").style.display = "none";
+            document.getElementById("show").style.display = "none";
+            document.getElementById("mobileWarning").style.display = "flex";
+        }
+    }
+
+    checkDevice(); // در بارگزاری اولیه اجرا شود
+    window.addEventListener("resize", checkDevice); // اگر کاربر تغییر اندازه داد
 </script>
   
 
