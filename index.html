@@ -71,30 +71,51 @@
             border-radius: 8px;
             margin-bottom: 10px;
         }
-#mobileWarning {
+#mobilePopup {
     display: none;
-    width: 100vw;
-    height: 100vh;
-    background: #000;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
     z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    color: black;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 90%;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    font-family: Arial, sans-serif;
+}
+
+.popup-content ul {
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 20px;
 }
 
     </style>
 </head>
 <body>
-    <div id="mobileWarning">
-    <h2>🚫 این صفحه فقط در حالت دسکتاپ قابل مشاهده است.</h2>
-    <p>لطفاً با یک دستگاه دسکتاپ وارد شوید یا مرورگر خود را در حالت دسکتاپ باز کنید.</p>
+  <div id="mobilePopup">
+    <div class="popup-content">
+        <h2>🚫 Desktop Only</h2>
+        <p>This page is only viewable on desktop.</p>
+        <p>If you're on a phone or tablet, please switch your browser to <strong>Desktop Mode</strong>:</p>
+        <ul>
+            <li><strong>Chrome:</strong> Tap the 3 dots ⋮ → "Desktop site"</li>
+            <li><strong>Safari:</strong> Tap "aA" → "Request Desktop Website"</li>
+        </ul>
+    </div>
 </div>
 
     <section id="contents">
@@ -131,17 +152,19 @@
         document.getElementById("show").style.display= "none";
     }
 
-    // بررسی اندازه صفحه برای مخفی یا نمایش دادن محتوا
+   <script>
     function checkDevice() {
-        if (window.innerWidth <= 768) { // موبایل یا تبلت
+        if (window.innerWidth <= 768) {
             document.getElementById("contents").style.display = "none";
             document.getElementById("show").style.display = "none";
-            document.getElementById("mobileWarning").style.display = "flex";
+            document.getElementById("mobilePopup").style.display = "flex";
         }
     }
 
-    checkDevice(); // در بارگزاری اولیه اجرا شود
-    window.addEventListener("resize", checkDevice); // اگر کاربر تغییر اندازه داد
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+</script>
+
 </script>
   
 
