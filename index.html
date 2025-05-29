@@ -110,11 +110,6 @@
     <div class="popup-content">
         <h2>🚫 Desktop Only</h2>
         <p>This page is only viewable on desktop.</p>
-        <p>If you're on a phone or tablet, please switch your browser to <strong>Desktop Mode</strong>:</p>
-        <ul>
-            <li><strong>Chrome:</strong> Tap the 3 dots ⋮ → "Desktop site"</li>
-            <li><strong>Safari:</strong> Tap "aA" → "Request Desktop Website"</li>
-        </ul>
     </div>
 </div>
 
@@ -152,18 +147,23 @@
         document.getElementById("show").style.display= "none";
     }
 
-   <script>
     function checkDevice() {
-        if (window.innerWidth <= 768) {
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
             document.getElementById("contents").style.display = "none";
             document.getElementById("show").style.display = "none";
             document.getElementById("mobilePopup").style.display = "flex";
+        } else {
+            document.getElementById("contents").style.display = "flex";
+            document.getElementById("mobilePopup").style.display = "none";
         }
     }
 
     checkDevice();
     window.addEventListener("resize", checkDevice);
-</script>
+
+
 
 </script>
   
